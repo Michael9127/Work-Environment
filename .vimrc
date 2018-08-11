@@ -40,27 +40,3 @@ nnoremap <F10> :tabnext<Enter>
 " Highlight currentline
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
-
-" Easymotion
-let mapleader = ','
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" w motions
-map  <Leader>w <Plug>(easymotion-bd-w)
-
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
