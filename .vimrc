@@ -16,6 +16,10 @@ set hlsearch
 map <PageUp> <C-U>
 map <PageDown> <C-D>
 
+" Ctr-t to vsplit
+nmap <C-t> :vsplit<Enter>
+imap <Esc><C-t> :vsplit<Enter>
+
 " Map 0 to first char on line, not beginning of line
 map 0 ^
 
@@ -40,3 +44,28 @@ nnoremap <F10> :tabnext<Enter>
 " Highlight currentline
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
+
+
+" Dont replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+endfunction
+
+" NB: this supports "rp that replaces the selection by the contents of @r
+vnoremap <silent> <expr> p <sid>Repl()
+
+" Set file tab completion
+set wildmenu
+set wildmode=longest:full,full
+
+" Remap window movement
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
