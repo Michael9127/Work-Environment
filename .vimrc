@@ -1,3 +1,4 @@
+syntax on
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -69,3 +70,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+execute pathogen#infect('/Users/mike/.vim/bundle/{}')
